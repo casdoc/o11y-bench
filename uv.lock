@@ -503,7 +503,7 @@ wheels = [
 
 [[package]]
 name = "harbor"
-version = "0.6.5"
+version = "0.15.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "claude-agent-sdk" },
@@ -520,7 +520,6 @@ dependencies = [
     { name = "pyyaml" },
     { name = "requests" },
     { name = "rich" },
-    { name = "ruff" },
     { name = "shortuuid" },
     { name = "supabase" },
     { name = "tenacity" },
@@ -528,9 +527,9 @@ dependencies = [
     { name = "typer" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7d/52/17f8398e749fcb65da9d712b4922995356fd686346eefd24dc959319d8ea/harbor-0.6.5.tar.gz", hash = "sha256:5f66a64afb75076ca1e6fac497f6036bdd34395a44c16324ede03c09597e9b29", size = 983716, upload-time = "2026-05-06T22:00:36.963Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e0/af/9927af345cd7d80e4346539e2340a1cd795861b12fb5d5ffc7b0788a7401/harbor-0.15.0.tar.gz", hash = "sha256:406b20ce520fc1ec12bc9b05396cc91756bb6379fb565a5bc2f2b6759e94cb12", size = 1287081, upload-time = "2026-06-19T22:48:17.474Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/07/ed/19250d1af8a0ab1fc3610633fb9d88b2a4b6a185086192a815f027b3f302/harbor-0.6.5-py3-none-any.whl", hash = "sha256:24f634443c4da245cd2ed7ff619e2c090fba7a8e180e6b4c97e0076a0d7f7054", size = 1116533, upload-time = "2026-05-06T22:00:35.123Z" },
+    { url = "https://files.pythonhosted.org/packages/df/5a/6e860d3bdbb09c56296d4b57fcebc22f8eb014b06eb3810f9e0a8ab718f7/harbor-0.15.0-py3-none-any.whl", hash = "sha256:a6f7f703d9b008920f07751ae27f6c049afe908bee8199aa6bcc911f6c2aab1b", size = 1463875, upload-time = "2026-06-19T22:48:19.009Z" },
 ]
 
 [[package]]
@@ -1072,7 +1071,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "anthropic", specifier = ">=0.40" },
-    { name = "harbor", specifier = "==0.6.5" },
+    { name = "harbor", specifier = "==0.15.0" },
     { name = "markdown", specifier = ">=3.10" },
     { name = "promql-parser", specifier = ">=0.7.0" },
     { name = "pydantic", specifier = ">=2.0" },
