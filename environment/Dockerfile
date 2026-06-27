@@ -1,4 +1,4 @@
-FROM ghcr.io/astral-sh/uv:python3.14-trixie-slim@sha256:76c7449e8bd509a860b61eb060599fd9b1750bcbafe28008f769d35db6109a3d
+FROM ghcr.io/astral-sh/uv:python3.14-trixie-slim@sha256:2b2e474b3a72e84c92b18a2f011a14adcb045fb361f7d8667ed1f8f55eefdafd
 
 RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates \
     && rm -rf /var/lib/apt/lists/*
