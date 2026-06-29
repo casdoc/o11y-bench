@@ -53,7 +53,8 @@ timeout_sec = 300.0
 
 [verifier.env]
 ANTHROPIC_API_KEY = "${{ANTHROPIC_API_KEY}}"
-GRADING_MODEL = "claude-haiku-4-5-20251001"
+ANTHROPIC_BASE_URL = "${{ANTHROPIC_BASE_URL}}"
+GRADING_MODEL = "mimo-v2.5-pro"
 
 [agent]
 timeout_sec = {DEFAULT_AGENT_TIMEOUT_SEC}.0

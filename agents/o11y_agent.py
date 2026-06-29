@@ -122,6 +122,7 @@ class O11yBenchAgent(BaseAgent):
         }
         for key in (
             "ANTHROPIC_API_KEY",
+            "ANTHROPIC_BASE_URL",
             "OPENAI_API_KEY",
             "OPENAI_API_BASE",
             "OPENROUTER_API_KEY",
