@@ -47,6 +47,15 @@ SYSTEM_PROMPT = _load_system_prompt()
 TASK_PROMPT_TEMPLATE = _load_task_prompt_template()
 MAX_AGENT_STEPS = 50
 
+# mimo-v2.5-pro pricing (Xiaomi overseas list price = Standard token-plan rate)
+# Source: inferfix-web PR #309
+_MIMO_INPUT_PER_TOKEN = 4.35e-7   # $0.435 / 1M
+_MIMO_OUTPUT_PER_TOKEN = 8.7e-7   # $0.870 / 1M
+
+
+def estimate_cost_usd(input_tokens: int, output_tokens: int) -> float:
+    return input_tokens * _MIMO_INPUT_PER_TOKEN + output_tokens * _MIMO_OUTPUT_PER_TOKEN
+
 
 def relax_mcp_tool_input_schema_for_llm(schema: dict[str, Any]) -> dict[str, Any]:
     out = copy.deepcopy(schema)
@@ -238,8 +247,12 @@ async def run_agent() -> None:
 
                         content: str = resp_data.get("content") or ""
                         tool_calls_raw: list[dict[str, Any]] = resp_data.get("tool_calls") or []
-                        stats["input"] += resp_data.get("usage", {}).get("prompt_tokens", 0)
-                        stats["output"] += resp_data.get("usage", {}).get("completion_tokens", 0)
+                        usage = resp_data.get("usage") or {}
+                        step_in = usage.get("prompt_tokens", 0) or 0
+                        step_out = usage.get("completion_tokens", 0) or 0
+                        stats["input"] += step_in
+                        stats["output"] += step_out
+                        stats["cost"] += estimate_cost_usd(step_in, step_out)
 
                         atif_tool_calls = [
                             {
