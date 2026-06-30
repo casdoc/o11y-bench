@@ -145,9 +145,15 @@ class CorvoHarborAgent(BaseAgent):
 
         # Populate Harbor context with token/cost metadata.
         if isinstance(usage, dict):
-            context.n_input_tokens = usage.get("promptTokens") or usage.get("prompt_tokens")
+            context.n_input_tokens = (
+                usage.get("inputTokens")
+                or usage.get("promptTokens")
+                or usage.get("prompt_tokens")
+            )
             context.n_output_tokens = (
-                usage.get("completionTokens") or usage.get("completion_tokens")
+                usage.get("outputTokens")
+                or usage.get("completionTokens")
+                or usage.get("completion_tokens")
             )
 
         # Write ATIF trajectory to host logs_dir and upload to container.
